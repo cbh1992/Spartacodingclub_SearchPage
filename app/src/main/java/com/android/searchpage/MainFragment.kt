@@ -30,7 +30,7 @@ class MainFragment : Fragment() {
     ): View? {
         val binding = FragmentMainBinding.inflate(inflater,container,false)
         binding.SearchButton.setOnClickListener {
-            binding.SearchText.text = "Test"
+            binding.testtext.text = binding.SearchText.text.toString()
         }
         return binding.root
 
