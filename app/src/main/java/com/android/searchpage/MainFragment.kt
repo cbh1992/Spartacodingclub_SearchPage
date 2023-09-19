@@ -35,8 +35,6 @@ class MainFragment : Fragment() {
             val edit = pref.edit()
             edit.putString("input", binding.SearchText.text.toString())
             edit.apply()
-
-            binding.testtext.text = binding.SearchText.text.toString()
         }
         //데이터 불러오기
         val pref = requireActivity().getSharedPreferences("pref",0)
