@@ -30,13 +30,19 @@ class MainFragment : Fragment() {
     ): View? {
         val binding = FragmentMainBinding.inflate(inflater,container,false)
         binding.SearchButton.setOnClickListener {
+            //데이터 저장하기
+            val pref = requireActivity().getSharedPreferences("pref",0)
+            val edit = pref.edit()
+            edit.putString("input", binding.SearchText.text.toString())
+            edit.apply()
+
             binding.testtext.text = binding.SearchText.text.toString()
         }
+        //데이터 불러오기
+        val pref = requireActivity().getSharedPreferences("pref",0)
+        binding.SearchText.setText(pref.getString("input",""))
+
         return binding.root
-
-        //return inflater.inflate(R.layout.fragment_main, container, false)
-
-
     }
 
     companion object {
