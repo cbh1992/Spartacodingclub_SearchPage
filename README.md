@@ -1,4 +1,5 @@
 # Spartacodingclub_SearchPage
 
 Main Repositorie has been changed.
-Now branch named Type2 is Main Repositorie.
+Now branch named Type1 is main branch
+Type2 is sub branch
