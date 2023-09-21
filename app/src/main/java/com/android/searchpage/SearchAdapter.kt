@@ -18,7 +18,7 @@ class SearchAdapter(private val mContext: Context): RecyclerView.Adapter<SearchA
     var items = ArrayList<SearchItemModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val binding = SearchItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding = ItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ItemViewHolder(binding)
     }
 
@@ -33,11 +33,11 @@ class SearchAdapter(private val mContext: Context): RecyclerView.Adapter<SearchA
             if  (curruntItem.islike) View.VISIBLE
             else View.INVISIBLE
         holder.title.text=curruntItem.title
-        holder.time.text=getDateFromTimestampWithFormat(
-            curruntItem.dateTime,
-            "yyyy-mm-dd'T'HH:mm:ss.SSS+09:00",
-            "yy-mm-dd HH:mm:ss"
-        )
+//        holder.time.text=getDateFromTimestampWithFormat(
+//            curruntItem.dateTime,
+//            "yyyy-mm-dd'T'HH:mm:ss.SSS+09:00",
+//            "yy-mm-dd HH:mm:ss"
+//        )
     }
 
     override fun getItemCount()=items.size
@@ -60,10 +60,10 @@ class SearchAdapter(private val mContext: Context): RecyclerView.Adapter<SearchA
             val item = items[position]
 
             item.islike = !item.islike
-            if(item.islike){
-                (mContext as MainActivity).addLikedItem(item)}
-            else{
-                (mContext as MainActivity).removeLikedItem(item)}
+//            if(item.islike){
+//                (mContext as MainActivity).addLikedItem(item)}
+//            else{
+//                (mContext as MainActivity).removeLikedItem(item)}
             notifyItemChanged(position)
         }
     }

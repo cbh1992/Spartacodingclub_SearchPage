@@ -18,7 +18,7 @@ class BookmarkAdapter(var mContext: Context) : RecyclerView.Adapter<RecyclerView
     var items = mutableListOf<SearchItemModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val binding = SearchItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding = ItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ItemViewHolder(binding)
     }
 
@@ -26,14 +26,20 @@ class BookmarkAdapter(var mContext: Context) : RecyclerView.Adapter<RecyclerView
         Glide.with(mContext)
             .load(items[position].url)
             .into((holder as ItemViewHolder).img)
-        holder.
+
+        holder.title.text =items[position].title
+//        holder.time.text = getDateFromTimestampWithFormat(
+//            items[position].dateTime,
+//            "yyyy-mm-dd'T'HH:mm:ss.SSS+09:00",
+//            "yy-mm-dd HH:mm:ss"
+//        )
     }
 
     override fun getItemCount(): Int {
        return items.size
     }
 
-    inner class ItemViewHolder(binding: SearchItemBinding):RecyclerView.ViewHolder(binding.root){
+    inner class ItemViewHolder(binding: ItemBinding):RecyclerView.ViewHolder(binding.root){
         var img:ImageView = binding.imageView
         var like : ImageView = binding.check
         var title: TextView = binding.itemTitle

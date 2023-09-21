@@ -13,7 +13,7 @@ import com.google.android.material.tabs.TabLayout
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    //var itemcheck:ArrayList<SearchItemModel> = ArrayList()
+    var itemcheck:ArrayList<SearchItemModel> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

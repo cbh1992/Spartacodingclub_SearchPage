@@ -41,14 +41,14 @@ class BookmarkFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val mainActivity=activity as MainActivity
-        likeItem = mainActivity.likeItem
+        likeItem = mainActivity.itemcheck
 
         adapter = BookmarkAdapter(mContext).apply {
             items = likeItem.toMutableList()
         }
         binding = FragmentBookmarkBinding.inflate(inflater,container,false).apply {
-        bookmark.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
-        bookmark.adapter = adapter
+            RecyclerViewBookmark.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+            RecyclerViewBookmark.adapter = adapter
         }
         return binding?.root
     }
